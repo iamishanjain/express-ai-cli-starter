@@ -1,0 +1,72 @@
+{
+  "manifestVersion": 1,
+  "id": "base",
+  "version": "1.0.0",
+  "category": "base",
+  "description": "Express app skeleton shared by every project.",
+  "package": {
+    "version": "1.0.0",
+    "private": true,
+    "type": "module"
+  },
+  "dependencies": {
+    "express": "^5.0.0",
+    "dotenv": "^16.4.0",
+    "cors": "^2.8.5",
+    "helmet": "^8.0.0"
+  },
+  "env": [
+    "PORT=3000",
+    "NODE_ENV=development"
+  ],
+  "files": [
+    {
+      "from": "files/app.tpl",
+      "to": "src/app.{{ext}}"
+    },
+    {
+      "from": "files/server.tpl",
+      "to": "src/server.{{ext}}"
+    },
+    {
+      "from": "files/gitignore.tpl",
+      "to": ".gitignore"
+    },
+    {
+      "from": "files/README.md.tpl",
+      "to": "README.md"
+    },
+    {
+      "from": "files/placeholder.tpl",
+      "to": "src/controllers/index.{{ext}}"
+    },
+    {
+      "from": "files/placeholder.tpl",
+      "to": "src/routes/index.{{ext}}"
+    },
+    {
+      "from": "files/placeholder.tpl",
+      "to": "src/models/index.{{ext}}"
+    },
+    {
+      "from": "files/placeholder.tpl",
+      "to": "src/services/index.{{ext}}"
+    },
+    {
+      "from": "files/placeholder.tpl",
+      "to": "src/middlewares/index.{{ext}}"
+    },
+    {
+      "from": "files/placeholder.tpl",
+      "to": "src/config/index.{{ext}}"
+    },
+    {
+      "from": "files/placeholder.tpl",
+      "to": "src/validators/index.{{ext}}"
+    },
+    {
+      "from": "files/placeholder.tpl",
+      "to": "src/utils/index.{{ext}}"
+    }
+  ]
+}

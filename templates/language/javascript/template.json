@@ -1,0 +1,19 @@
+{
+  "manifestVersion": 1,
+  "id": "language/javascript",
+  "version": "1.0.0",
+  "category": "language",
+  "option": "javascript",
+  "label": "JavaScript",
+  "order": 2,
+  "variables": {
+    "ext": "js"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "manifestVersion": 1,
+  "id": "database/none",
+  "version": "1.0.0",
+  "category": "database",
+  "option": "none",
+  "label": "None",
+  "order": 4
+}

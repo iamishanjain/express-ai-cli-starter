@@ -1,0 +1,43 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Never paste API keys.** Output from ExpressForge is redacted, but please check before posting.
+  - type: input
+    id: version
+    attributes:
+      label: ExpressForge version
+      description: Output of `expressforge --version`
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Node.js and operating system
+      placeholder: Node 22.4.0, macOS 15
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command you ran
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+      description: Re-run with `--debug` and paste the output.
+      render: text
+    validations:
+      required: true

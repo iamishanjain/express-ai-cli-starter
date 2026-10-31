@@ -1,0 +1,15 @@
+{
+  "manifestVersion": 1,
+  "id": "database/mongodb",
+  "version": "1.0.0",
+  "category": "database",
+  "option": "mongodb",
+  "label": "MongoDB",
+  "order": 3,
+  "dependencies": {
+    "mongoose": "^8.0.0"
+  },
+  "env": [
+    "MONGO_URI=mongodb://localhost:27017/app"
+  ]
+}

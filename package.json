@@ -1,16 +1,67 @@
 {
-  "name": "express-ai-cli",
-  "version": "0.1.0",
-  "description": "AI-assisted Express project scaffolding CLI",
+  "name": "expressforge",
+  "version": "0.2.0",
+  "description": "Generate Express.js API starters from the terminal, with optional AI-proposed data models.",
+  "keywords": [
+    "express",
+    "cli",
+    "scaffold",
+    "generator",
+    "starter",
+    "boilerplate",
+    "ai",
+    "gemini",
+    "typescript",
+    "api"
+  ],
+  "license": "MIT",
+  "author": "Ishan Jain",
+  "homepage": "https://github.com/iamishanjain/express-ai-cli-starter#readme",
+  "bugs": {
+    "url": "https://github.com/iamishanjain/express-ai-cli-starter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamishanjain/express-ai-cli-starter.git"
+  },
   "type": "module",
   "bin": {
-    "create-express-ai": "./dist/cli.js"
+    "expressforge": "./dist/bin/main.js",
+    "create-express-ai": "./dist/bin/main.js"
   },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "dev": "tsx src/cli.ts",
-    "build": "tsc -p tsconfig.json",
-    "start": "node dist/cli.js",
-    "typecheck": "tsc --noEmit"
+    "dev": "tsx src/bin/main.ts",
+    "build": "npm run clean && tsc -p tsconfig.build.json && node scripts/make-executable.mjs",
+    "clean": "node scripts/clean.mjs",
+    "start": "node dist/bin/main.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration tests/cli",
+    "test:watch": "vitest",
+    "check:package": "node scripts/check-package.mjs",
+    "pack:dry": "npm pack --dry-run",
+    "prepublishOnly": "npm run typecheck && npm run lint && npm test && npm run build && npm run check:package"
   },
   "engines": {
     "node": ">=20"
@@ -20,13 +71,25 @@
     "@inquirer/prompts": "^7.0.0",
     "chalk": "^5.0.0",
     "commander": "^13.0.0",
-    "dotenv": "^16.4.0",
     "ora": "^8.0.0",
-    "zod": "^3.24.0"
+    "zod": "^4.6.7"
+  },
+  "optionalDependencies": {
+    "@napi-rs/keyring": "^2.1.2"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^4.1.12",
+    "eslint": "^10.14.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.10",
     "tsx": "^4.0.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^4.1.12"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
