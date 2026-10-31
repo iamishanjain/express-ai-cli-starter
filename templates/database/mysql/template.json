@@ -1,0 +1,19 @@
+{
+  "manifestVersion": 1,
+  "id": "database/mysql",
+  "version": "1.0.0",
+  "category": "database",
+  "option": "mysql",
+  "label": "MySQL",
+  "order": 2,
+  "dependencies": {
+    "mysql2": "^3.0.0"
+  },
+  "env": [
+    "DB_HOST=localhost",
+    "DB_PORT=",
+    "DB_USER=",
+    "DB_PASSWORD=",
+    "DB_NAME="
+  ]
+}
