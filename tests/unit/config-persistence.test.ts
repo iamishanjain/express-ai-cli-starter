@@ -15,9 +15,13 @@ afterEach(() => fs.rmSync(dir, { recursive: true, force: true }));
 describe("getConfigDir", () => {
   const base = { env: {}, homedir: "/home/u" };
   it("follows each platform's convention", () => {
-    expect(getConfigDir({ ...base, platform: "darwin" })).toBe("/home/u/Library/Application Support/expressforge");
-    expect(getConfigDir({ ...base, platform: "linux" })).toBe("/home/u/.config/expressforge");
-    expect(getConfigDir({ ...base, platform: "linux", env: { XDG_CONFIG_HOME: "/x" } })).toBe("/x/expressforge");
+    expect(getConfigDir({ ...base, platform: "darwin" })).toBe(
+      path.join("/home/u", "Library", "Application Support", "expressforge")
+    );
+    expect(getConfigDir({ ...base, platform: "linux" })).toBe(path.join("/home/u", ".config", "expressforge"));
+    expect(getConfigDir({ ...base, platform: "linux", env: { XDG_CONFIG_HOME: "/x" } })).toBe(
+      path.join("/x", "expressforge")
+    );
     expect(getConfigDir({ ...base, platform: "win32", env: { APPDATA: "C:\\Users\\u\\AppData\\Roaming" } })).toContain(
       "expressforge"
     );
