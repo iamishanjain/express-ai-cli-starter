@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^22.0.0",
+    "@types/node": "^26.6.5",
     "@vitest/coverage-v8": "^4.1.12",
     "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
